@@ -1,9 +1,10 @@
 import torch
-from Value import Value
+# from Value import Value
+from Engine import CppModule as module
 
 def test_sanity_check():
 
-    x = Value(-4.0)
+    x = module.Value(-4.0)
     z = 2 * x + 2 + x
     q = z.Relu() + z * x
     h = (z * z).Relu()
@@ -27,8 +28,8 @@ def test_sanity_check():
 
 def test_more_ops():
 
-    a = Value(-4.0)
-    b = Value(2.0)
+    a = module.Value(-4.0)
+    b = module.Value(2.0)
     c = a + b
     d = a * b + b**3
     c += c + 1
