@@ -1,9 +1,4 @@
 # Auto-grad-implementation
-Here is a complete, well-structured `README.md` drafted based on the provided project files. 
-
----
-
-# AutoGrad & Custom C++ Neural Network Engine
 
 ## 1. What is AutoGrad, and how is it used with an MLP?
 
