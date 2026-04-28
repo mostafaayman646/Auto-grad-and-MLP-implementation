@@ -45,7 +45,7 @@ d.backward()
 # 4. Inspect the values and their gradients
 draw_dot(d)
 ```
-
+<img src="Images/Value_tut.png" width="1200">
 ---
 
 ### What is `MLP`?
