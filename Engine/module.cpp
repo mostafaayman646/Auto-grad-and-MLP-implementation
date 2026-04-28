@@ -27,6 +27,8 @@ PYBIND11_MODULE(CppModule, m) {
         // Methods
         .def("Tanh", &Value::Tanh)
         .def("Relu", &Value::Relu)
+        .def("exp", &Value::exp)
+        .def("log", &Value::log)
         .def("backward", &Value::backward)
         
         // Python Dunder Methods mapped to the global Operator Overloads in C++

@@ -21,7 +21,7 @@ public:
         : data(data), grad(0.0), _op(op), _prev(prev), label(label), _backward([](){}) {}
 
     shared_ptr<Value> Tanh() {
-        double t = (exp(2 * data) - 1) / (exp(2 * data) + 1);
+        double t = (std::exp(2 * data) - 1) / (std::exp(2 * data) + 1);
         auto out = make_shared<Value>(t, "Tanh", vector<shared_ptr<Value>>{shared_from_this()});
         
         out->_backward = [this, out]() {
@@ -36,6 +36,26 @@ public:
         
         out->_backward = [this, out]() {
             this->grad += (out->data > 0 ? 1.0 : 0.0) * out->grad;
+        };
+        return out;
+    }
+
+    shared_ptr<Value> exp() {
+        double t = std::exp(data);
+        auto out = make_shared<Value>(t, "exp", vector<shared_ptr<Value>>{shared_from_this()});
+        
+        out->_backward = [this, out]() {
+            this->grad += out->grad * out->data;
+        };
+        return out;
+    }
+
+    shared_ptr<Value> log() {
+        double t = std::log(data);
+        auto out = make_shared<Value>(t, "log", vector<shared_ptr<Value>>{shared_from_this()});
+        
+        out->_backward = [this, out]() {
+            this->grad += out->grad * (1.0 / this->data);
         };
         return out;
     }
