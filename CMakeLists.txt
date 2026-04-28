@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(PYBIND11_FINDPYTHON ON)
 
-# 1. Enforce EXACTLY Python 3.12
 find_package(Python3 3.12 EXACT COMPONENTS Interpreter Development REQUIRED)
 
 execute_process(
