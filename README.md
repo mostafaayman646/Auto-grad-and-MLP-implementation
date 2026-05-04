@@ -7,7 +7,7 @@
 **How it is used with a Multi-Layer Perceptron (MLP):**
 When training an MLP, the goal is to minimize a loss function. AutoGrad powers the **backpropagation** step. During the forward pass, data flows through the network layers to produce predictions, and AutoGrad records every mathematical operation (additions, multiplications, activations). Once the loss is calculated, AutoGrad traverses the graph backward to compute the gradient of the loss with respect to every weight and bias in the network. Optimizers, like Stochastic Gradient Descent (SGD), then use these gradients to iteratively update the parameters and improve the network's accuracy.
 
-<img src="Images/autograd.png" width="800">
+<img src="Images/backprop_tut.png" width="1000">
 
 ---
 
